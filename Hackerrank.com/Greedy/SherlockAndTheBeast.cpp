@@ -20,3 +20,36 @@ Constraints
 1 <= T <= 20
 1 <= N <= 100000
 */
+
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+string findDecentNumber(int n) {
+    if (n < 3 || n == 4 || n == 7) return "-1";
+    int remainder = n % 3, numFive = n / 3, numThree = 0;
+    if (remainder == 0) return string(n, '5');
+    if (remainder == 1) {
+        numFive -= 3;
+        numThree += 2;
+    } else {
+        numFive--;
+        numThree++;
+    }
+    return string(numFive * 3, '5') + string(numThree * 5, '3');
+}
+
+int main(){
+    int t;
+    cin >> t;
+    for(int a0 = 0; a0 < t; a0++){
+        int n;
+        cin >> n;
+        cout << findDecentNumber(n) << endl;
+    }
+    return 0;
+}
