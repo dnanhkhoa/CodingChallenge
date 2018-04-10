@@ -65,7 +65,7 @@ long roadsAndLibraries(int n, int c_lib, int c_road, vector <vector<int>> cities
     long answer = 0;
     for (int i = 0; i < n; ++i) {
         if (groups[i]) {
-            answer += c_lib + (groups[i] - 1) * (c_lib < c_road? c_lib : c_road);
+            answer += c_lib + (groups[i] - 1) * (c_lib < c_road ? c_lib : c_road);
         }
     }
     return answer;
